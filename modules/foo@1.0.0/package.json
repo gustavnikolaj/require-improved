@@ -1,0 +1,8 @@
+{
+  "name": "foo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "greeting": "1.2.3"
+  }
+}
