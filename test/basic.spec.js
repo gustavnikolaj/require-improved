@@ -7,7 +7,8 @@ const moduleDirectory = pathResolve(projectRoot, "modules");
 const expect = require("unexpected")
   .clone()
   .addAssertion("<object> to resolve to <string>", (expect, subject, value) => {
-    const { request, packageJson, isMain = true } = subject;
+    expect.errorMode = "nested";
+    const { request, packageJson = {}, isMain = true } = subject;
 
     return expect(
       resolve(moduleDirectory, request, {}, isMain, packageJson),
@@ -16,17 +17,23 @@ const expect = require("unexpected")
     );
   })
   .addAssertion("<object> not to be resolved", (expect, subject) => {
-    const { request, packageJson, isMain = true } = subject;
+    expect.errorMode = "nested";
+    const { request, packageJson = {}, isMain = true } = subject;
 
     return expect(
       resolve(moduleDirectory, request, {}, isMain, packageJson),
       "to be null"
     );
   })
+  .addAssertion("<string> not to be resolved", (expect, subject) => {
+    expect.errorMode = "nested";
+    return expect({ request: subject }, "not to be resolved");
+  })
   .addAssertion(
     "<object> to reject resolution with error <any>",
     (expect, subject, value) => {
-      const { request, packageJson, isMain = true } = subject;
+      expect.errorMode = "nested";
+      const { request, packageJson = {}, isMain = true } = subject;
 
       return expect(
         () => resolve(moduleDirectory, request, {}, isMain, packageJson),
@@ -51,8 +58,12 @@ it("should load the foo module", () => {
   );
 });
 
+it("should not attempt to resolve the fs module", () => {
+  expect("fs", "not to be resolved");
+});
+
 it("should not attempt to resolve a relative path", () => {
-  expect({ request: "./foobar", packageJson: {} }, "not to be resolved");
+  expect("./foobar", "not to be resolved");
 });
 
 it("should not allow loading foo from when it's not listed as a dependency", () => {
