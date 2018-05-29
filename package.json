@@ -15,9 +15,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "foo": "^1.0.0"
-  },
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-pretty-standard": "^1.4.1",

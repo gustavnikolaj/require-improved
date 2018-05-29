@@ -1,5 +1,5 @@
 # irequire
 
 ```
-$ node -r ./lib/register.js example.js
+$ node -r ./lib/register examples/simple/index.js
 ```

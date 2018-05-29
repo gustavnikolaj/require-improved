@@ -1,0 +1,9 @@
+{
+  "name": "simple-example",
+  "version": "0.0.0",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "foo": "^1.0.0"
+  }
+}
