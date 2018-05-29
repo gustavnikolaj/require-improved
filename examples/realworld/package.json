@@ -1,0 +1,9 @@
+{
+  "name": "realworld",
+  "version": "0.0.0",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "unexpected": "^10.0.0"
+  }
+}
