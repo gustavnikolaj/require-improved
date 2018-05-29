@@ -1,5 +1,4 @@
-// Modify require
-require("./lib/irequire")(`${__dirname}/modules`);
+// Run as $ node -r ./lib/register.js example.js
 
 const foo = require("foo");
 
