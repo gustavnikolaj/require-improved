@@ -1,9 +1,5 @@
 const config = {
-  extends: ["pretty-standard"],
-  plugins: ["import"],
-  rules: {
-    "import/no-unresolved": ["error", { commonjs: true }]
-  }
+  extends: ["pretty-standard"]
 };
 
 if (process.stdin.isTTY) {
